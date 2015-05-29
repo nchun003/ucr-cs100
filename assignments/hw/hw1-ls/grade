@@ -1,2 +1,27 @@
-/ 100
+80/ 100
+Last update Fri May 1 23:31:52 2015 -0700
+
+Error checking for syscalls
+file: [src/ls.cpp] -5
+
+
+==1436== 2 bytes in 1 blocks are definitely lost in loss record 1 of 3 ==1436== 2 bytes in 1 blocks are definitely lost in loss record 2 of 3 ==1436== 2 bytes in 1 blocks are definitely lost in loss record 3 of 3 ==1436== definitely lost: 6 bytes in 3 blocks
+-5: memory leak found in valgrind (ls -laR)
+
+
+-5 for missing tests:
+-0: bin/ls -a.*-l.*-R flag does not work
+-0: bin/ls -a.*-R.*-l flag does not work
+-0: bin/ls -l.*-a.*-R flag does not work
+-0: bin/ls -l.*-R.*-a flag does not work
+-0: bin/ls -R.*-a.*-l flag does not work
+-0: bin/ls -R.*-l.*-a flag does not work
+
+-5 for missing tests:
+-0: bin/ls -alR flag does not work
+-0: bin/ls -aRl flag does not work
+-0: bin/ls -laR flag does not work
+-0: bin/ls -lRa flag does not work
+-0: bin/ls -Ral flag does not work
+-0: bin/ls -Rla flag does not work
 
